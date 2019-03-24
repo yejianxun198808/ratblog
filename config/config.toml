@@ -1,0 +1,14 @@
+RunMode = debug
+
+#版本号
+Version="1.0"
+
+#数据库
+[Servers]
+Type = "mysql"
+Host = "127.0.0.1"
+Username = "root"
+Password = ""
+Dbname = "ratblog"
+Tablename = "ratblog_"
+
