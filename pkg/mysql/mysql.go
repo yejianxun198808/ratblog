@@ -5,5 +5,5 @@ import (
 )
 
 func GetTags(c *gin.Context) {
-     fmt.pl
+	fmt.pl
 }
