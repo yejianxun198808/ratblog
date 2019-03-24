@@ -5,5 +5,5 @@ import (
 )
 
 func GetTags(c *gin.Context) {
-	fmt.pl
+	fmt.println("第一次提交代码已成功")
 }
