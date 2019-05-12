@@ -8,7 +8,7 @@ func GetTags(c *gin.Context) {
 }
 
 //新增文章标签
-func AddTag(c *gin.Context){
+func AddTag(c *gin.Context) {
 
 }
 
@@ -18,6 +18,6 @@ func EditTag(c *gin.Context) {
 }
 
 //删除文章标签
-func DeleteTag(c *gin.Context){
+func DeleteTag(c *gin.Context) {
 
 }

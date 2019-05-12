@@ -2,10 +2,11 @@ package setting
 
 import (
 	"fmt"
-	"github.com/BurntSushi/toml"
 	"path/filepath"
 	"sync"
 	"time"
+
+	"github.com/BurntSushi/toml"
 )
 
 type tomlConfig struct {
@@ -35,12 +36,12 @@ var (
 	once sync.Once
 
 	RunMode string
-	
-	HTTPPort int
-	ReadTimeout time.Duration
+
+	HTTPPort     int
+	ReadTimeout  time.Duration
 	WriteTimeout time.Duration
 
-	PageSize int
+	PageSize  int
 	JwtSecret string
 )
 
@@ -51,7 +52,7 @@ func Config() *tomlConfig {
 			panic(err)
 		}
 		fmt.Printf("parse toml file once. filePath: %s\n", filePath)
-		if _ , err := toml.DecodeFile(filePath, &cfg); err != nil {
+		if _, err := toml.DecodeFile(filePath, &cfg); err != nil {
 			panic(err)
 		}
 	})
@@ -59,12 +60,11 @@ func Config() *tomlConfig {
 }
 
 func init() {
-		Config()
-		LoadBase()
-		LoadServer()
-		LoadApp()
+	Config()
+	LoadBase()
+	LoadServer()
+	LoadApp()
 }
-
 
 func LoadBase() {
 	RunMode = cfg.RunMode
@@ -75,7 +75,7 @@ func LoadServer() {
 	RunMode = cfg.RunMode
 	HTTPPort = sec.HTTPPORT
 	ReadTimeout = time.Duration(sec.READTIMEOUT) * time.Second
-	WriteTimeout =  time.Duration(sec.WRITETIMEOUT) * time.Second
+	WriteTimeout = time.Duration(sec.WRITETIMEOUT) * time.Second
 }
 
 func LoadApp() {

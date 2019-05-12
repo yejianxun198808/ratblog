@@ -1,9 +1,10 @@
 package routers
 
 import (
-	"github.com/gin-gonic/gin"
 	"ratblog/pkg/setting"
-	"ratblog/routers/api/v1"
+	v1 "ratblog/routers/api/v1"
+
+	"github.com/gin-gonic/gin"
 )
 
 func InitRouter() *gin.Engine {
@@ -15,7 +16,7 @@ func InitRouter() *gin.Engine {
 
 	gin.SetMode(setting.RunMode)
 
-	apiv1  := r.Group("/api/v1")
+	apiv1 := r.Group("/api/v1")
 	{
 		//获取标签列表
 		apiv1.GET("/tags", v1.GetTags)
