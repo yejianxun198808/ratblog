@@ -3,7 +3,7 @@ package models
 import (
 	"fmt"
 	"log"
-	"ratblog/config"
+	"ratblog/pkg/setting"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -13,8 +13,8 @@ var db *gorm.DB
 
 type Model struct {
 	ID         int `gorm:"primary_key"`
-	CreatedOn  int
-	ModifiedOn int
+	CreatedOn  int `json:"created_on"`
+	ModifiedOn int	`json:"modified_on"`
 }
 
 //sql数据库连接
@@ -23,7 +23,7 @@ func init() {
 		err                                               error
 		dbType, dbName, user, password, host, tablePrefix string
 	)
-	sec := config.Config().Servers
+	sec := setting.Config().Database
 	dbType = sec.Type
 	dbName = sec.Dbname
 	user = sec.Username
@@ -50,7 +50,7 @@ func init() {
 	db.DB().SetMaxOpenConns(100)
 }
 
-//数据库关闭
+//关闭数据库连接
 func CloseDB() {
 	defer db.Close()
 }

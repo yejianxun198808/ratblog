@@ -1,10 +1,20 @@
-RunMode = debug
+RunMode ="debug"
 
 #版本号
 Version="1.0"
 
+[app]
+PAGE_SIZE = 10
+JWT_SECRET = '23347$040412'
+
+[server]
+HTTP_PORT = 8080
+READ_TIMEOUT = 60
+WRITE_TIMEOUT = 60
+
+
 #数据库
-[Servers]
+[database]
 Type = "mysql"
 Host = "127.0.0.1"
 Username = "root"
