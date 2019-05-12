@@ -4,7 +4,7 @@ import "github.com/gin-gonic/gin"
 
 //获取多个文章标签
 func GetTags(c *gin.Context) {
-	name := c.Qyery("name")
+
 }
 
 //新增文章标签
