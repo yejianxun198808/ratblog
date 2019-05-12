@@ -16,9 +16,10 @@ WRITE_TIMEOUT = 60
 #数据库
 [database]
 Type = "mysql"
-Host = "127.0.0.1"
+#127.0.0.1:3306
+Host = "127.0.0.1:3306"
 Username = "root"
-Password = ""
-Dbname = "ratblog"
-Tablename = "ratblog_"
+Password = "63204578"
+Dbname = "blog"
+Tablename = "blog_"
 

@@ -47,7 +47,7 @@ var (
 
 func Config() *tomlConfig {
 	once.Do(func() {
-		filePath, err := filepath.Abs("./ratblog/config/config.toml")
+		filePath, err := filepath.Abs("./config/config.toml")
 		if err != nil {
 			panic(err)
 		}
