@@ -19,7 +19,7 @@ Type = "mysql"
 #127.0.0.1:3306
 Host = "127.0.0.1:3306"
 Username = "root"
-Password = "63204578"
+Password = ""
 Dbname = "blog"
 Tablename = "blog_"
 
