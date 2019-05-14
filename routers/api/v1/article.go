@@ -14,7 +14,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//获取单个文章
+
+//@Summary 获取单个文章
+// @Produce  json
+// @Param id path int true "ID"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/articles/{id} [get]
 func GetArticle(c *gin.Context) {
 	id := com.StrTo(c.Param("id")).MustInt()
 
@@ -43,7 +48,14 @@ func GetArticle(c *gin.Context) {
 	})
 }
 
-//获取多个文章
+
+//@Summary 获取多个文章
+// @Produce  json
+// @Param id path int true "ID"
+// @Param state body int false "State"
+// @Param created_by body int false "CreatedBy"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/articles/{id} [get]
 func GetArticles(c *gin.Context) {
 	data := make(map[string]interface{})
 	maps := make(map[string]interface{})
@@ -85,7 +97,17 @@ func GetArticles(c *gin.Context) {
 	})
 }
 
-//添加文章
+
+// @Summary 添加文章
+// @Produce  json
+// @Param tag_id body int true "TagID"
+// @Param title body string true "Title"
+// @Param desc body string true "Desc"
+// @Param content body string true "Content"
+// @Param created_by body string true "CreatedBy"
+// @Param state body int true "State"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/articles [post]
 func AddArticle(c *gin.Context) {
 	tagId := com.StrTo(c.Query("tag_id")).MustInt()
 	title := c.Query("title")
@@ -131,7 +153,16 @@ func AddArticle(c *gin.Context) {
 	})
 }
 
-//修改文章
+// @Summary 修改文章
+// @Produce  json
+// @Param id path int true "ID"
+// @Param tag_id body string false "TagID"
+// @Param title body string false "Title"
+// @Param desc body string false "Desc"
+// @Param content body string false "Content"
+// @Param modified_by body string true "ModifiedBy"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/articles [post]
 func EditArticle(c *gin.Context) {
 	valid := validation.Validation{}
 
@@ -196,7 +227,12 @@ func EditArticle(c *gin.Context) {
 	})
 }
 
-//删除文章
+
+// @Summary 删除文章
+// @Produce  json
+// @Param id path int true "ID"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/articles/{id} [delete]
 func DeleteArticle(c *gin.Context) {
 	id := com.StrTo(c.Param("id")).MustInt()
 
