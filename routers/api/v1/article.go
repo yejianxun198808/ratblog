@@ -55,7 +55,7 @@ func GetArticle(c *gin.Context) {
 // @Param state body int false "State"
 // @Param created_by body int false "CreatedBy"
 // @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
-// @Router /api/v1/articles/{id} [get]
+// @Router /api/v1/articles [get]
 func GetArticles(c *gin.Context) {
 	data := make(map[string]interface{})
 	maps := make(map[string]interface{})
@@ -98,7 +98,7 @@ func GetArticles(c *gin.Context) {
 }
 
 
-// @Summary 添加文章
+// @Summary 新增文章
 // @Produce  json
 // @Param tag_id body int true "TagID"
 // @Param title body string true "Title"
@@ -162,7 +162,7 @@ func AddArticle(c *gin.Context) {
 // @Param content body string false "Content"
 // @Param modified_by body string true "ModifiedBy"
 // @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
-// @Router /api/v1/articles [post]
+// @Router /api/v1/articles{id} [put]
 func EditArticle(c *gin.Context) {
 	valid := validation.Validation{}
 

@@ -18,7 +18,7 @@ import (
 // @Param name query string true "Name"
 // @Param state query int false "State"
 // @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
-// @Router /api/v1/tags [post]
+// @Router /api/v1/tags [get]
 func GetTags(c *gin.Context) {
 	name := c.Query("name")
 
@@ -134,7 +134,7 @@ func EditTag(c *gin.Context) {
 	})
 }
 
-// @Summary 删除文章
+// @Summary 删除文章标签
 // @Produce  json
 // @Param id path int true "ID"
 // @Param name query string true "ID"

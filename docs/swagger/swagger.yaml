@@ -8,7 +8,110 @@ info:
   version: '{{.Version}}'
 paths:
   /api/v1/articles:
+    get:
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: State
+        in: body
+        name: state
+        schema:
+          type: object
+      - description: CreatedBy
+        in: body
+        name: created_by
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取多个文章
     post:
+      parameters:
+      - description: TagID
+        in: body
+        name: tag_id
+        required: true
+        schema:
+          type: object
+      - description: Title
+        in: body
+        name: title
+        required: true
+        schema:
+          type: object
+      - description: Desc
+        in: body
+        name: desc
+        required: true
+        schema:
+          type: object
+      - description: Content
+        in: body
+        name: content
+        required: true
+        schema:
+          type: object
+      - description: CreatedBy
+        in: body
+        name: created_by
+        required: true
+        schema:
+          type: object
+      - description: State
+        in: body
+        name: state
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 新增文章
+  /api/v1/articles/{id}:
+    delete:
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除文章
+    get:
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取单个文章
+  /api/v1/articles{id}:
+    put:
       parameters:
       - description: ID
         in: path
@@ -49,39 +152,18 @@ paths:
           schema:
             type: string
       summary: 修改文章
-  /api/v1/articles/{id}:
-    delete:
-      parameters:
-      - description: ID
-        in: path
-        name: id
-        required: true
-        type: integer
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: '{"code":200,"data":{},"msg":"ok"}'
-          schema:
-            type: string
-      summary: 删除文章
+  /api/v1/tags:
     get:
       parameters:
-      - description: ID
-        in: path
-        name: id
+      - description: Name
+        in: query
+        name: name
         required: true
-        type: integer
+        type: string
       - description: State
-        in: body
+        in: query
         name: state
-        schema:
-          type: object
-      - description: CreatedBy
-        in: body
-        name: created_by
-        schema:
-          type: object
+        type: integer
       produces:
       - application/json
       responses:
@@ -89,8 +171,7 @@ paths:
           description: '{"code":200,"data":{},"msg":"ok"}'
           schema:
             type: string
-      summary: 获取多个文章
-  /api/v1/tags:
+      summary: 获取多个文章标签
     post:
       parameters:
       - description: Name
@@ -134,7 +215,7 @@ paths:
           description: '{"code":200,"data":{},"msg":"ok"}'
           schema:
             type: string
-      summary: 删除文章
+      summary: 删除文章标签
     put:
       parameters:
       - description: ID
