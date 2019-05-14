@@ -7,8 +7,8 @@ import (
 	v1 "ratblog/routers/api/v1"
 
 	"github.com/gin-gonic/gin"
-	
-	
+
+	_ "ratblog/docs"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
