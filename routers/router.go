@@ -8,7 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	
-	_ "github.com/yejianxun/ratblog/docs"
+	
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
