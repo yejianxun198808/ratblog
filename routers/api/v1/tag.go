@@ -13,7 +13,12 @@ import (
 	"ratblog/pkg/setting"
 )
 
-//获取多个文章标签
+// @Summary 获取多个文章标签
+// @Produce  json
+// @Param name query string true "Name"
+// @Param state query int false "State"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/tags [post]
 func GetTags(c *gin.Context) {
 	name := c.Query("name")
 
